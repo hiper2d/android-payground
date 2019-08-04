@@ -5,6 +5,8 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.TextView
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -35,5 +37,10 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    fun randButtonClick(view: View) {
+        val textView = findViewById<TextView>(R.id.result)
+        textView.text = (1..6).random().toString()
     }
 }
