@@ -6,16 +6,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var trueButton: Button
+    private lateinit var falseButton: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        trueButton = findViewById(R.id.true_button)
+        falseButton = findViewById(R.id.false_button)
+
+        trueButton.setOnClickListener { Toast.makeText(this, R.string.answer_correct, Toast.LENGTH_SHORT).show() }
+        falseButton.setOnClickListener { Toast.makeText(this, R.string.answer_incorrect, Toast.LENGTH_SHORT).show() }
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -37,10 +48,5 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    fun randButtonClick(view: View) {
-        val textView = findViewById<TextView>(R.id.result)
-        textView.text = (1..6).random().toString()
     }
 }

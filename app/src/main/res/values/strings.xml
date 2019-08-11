@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Android Playground</string>
     <string name="action_settings">Settings</string>
+    <string name="question_text">You good?</string>
+    <string name="true_button">Yes</string>
+    <string name="false_button">No</string>
+    <string name="answer_correct">Right</string>
+    <string name="answer_incorrect">Too bad</string>
 </resources>

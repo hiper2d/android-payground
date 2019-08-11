@@ -21,7 +21,29 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_main"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:gravity="center" android:id="@+id/ContentLayout">
+        <TextView
+                android:text="@string/question_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/question_text" android:padding="24dp"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/ButtonsLayout" style="buttonBarStyle">
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="@string/true_button"
+                    android:id="@+id/true_button" style="buttonBarButtonStyle"/>
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:text="@string/false_button"
+                    style="buttonBarButtonStyle" android:id="@+id/false_button"/>
+        </LinearLayout>
+    </LinearLayout>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
