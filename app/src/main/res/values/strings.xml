@@ -1,9 +1,16 @@
 <resources>
-    <string name="app_name">Android Playground</string>
+    <string name="app_name">Nuffy and you</string>
     <string name="action_settings">Settings</string>
-    <string name="question_text">You good?</string>
-    <string name="true_button">Yes</string>
-    <string name="false_button">No</string>
+    <string name="button_true">Yes</string>
+    <string name="button_false">No</string>
+    <string name="next_button">No</string>
     <string name="answer_correct">Right</string>
-    <string name="answer_incorrect">Too bad</string>
+    <string name="answer_incorrect">Wrong, try again</string>
+    <string name="answer_congrats">Congratulations!</string>
+    <string name="button_back">Back</string>
+    <string name="button_next">Next</string>
+
+    <string name="question_1">Can Naffy count?</string>
+    <string name="question_2">Are you best friends?</string>
+    <string name="question_3">Can Naffy write in Japanese?</string>
 </resources>

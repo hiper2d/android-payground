@@ -5,33 +5,88 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.hiper2d.androidplayground.dto.Question
 
 import kotlinx.android.synthetic.main.activity_main.*
 
+private val QUESTIONS = listOf(
+    Question(R.string.question_1, true),
+    Question(R.string.question_2, true),
+    Question(R.string.question_3, false)
+)
+
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var trueButton: Button
-    private lateinit var falseButton: Button
+    private lateinit var bYes: Button
+    private lateinit var bNo: Button
+    private lateinit var bNext: Button
+    private lateinit var bPrev: Button
+    private lateinit var tvQuestion: TextView
+
+    private var currentQuestionIndex = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        trueButton = findViewById(R.id.true_button)
-        falseButton = findViewById(R.id.false_button)
+        bNext = findViewById(R.id.button_next)
+        bPrev = findViewById(R.id.button_prev)
+        bYes = findViewById(R.id.button_yes)
+        bNo = findViewById(R.id.button_no)
+        tvQuestion = findViewById(R.id.text_question)
 
-        trueButton.setOnClickListener { Toast.makeText(this, R.string.answer_correct, Toast.LENGTH_SHORT).show() }
-        falseButton.setOnClickListener { Toast.makeText(this, R.string.answer_incorrect, Toast.LENGTH_SHORT).show() }
+        tvQuestion.setText(QUESTIONS[currentQuestionIndex].textResId)
+        bYes.setOnClickListener { checkAnswer(true) }
+        bNo.setOnClickListener { checkAnswer(false) }
+        bNext.setOnClickListener { showNextQuestion() }
+        bPrev.setOnClickListener { showPrevQuestion() }
+
+        bPrev.isEnabled = false
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Nothing is here yet", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+    }
+
+    private fun showPrevQuestion() {
+        if (currentQuestionIndex > 1) {
+            tvQuestion.setText(QUESTIONS[--currentQuestionIndex].textResId)
+            enableAll()
+        } else {
+            bPrev.isEnabled = false
+        }
+    }
+
+    private fun showNextQuestion() {
+        if (currentQuestionIndex < QUESTIONS.lastIndex) {
+            tvQuestion.setText(QUESTIONS[++currentQuestionIndex].textResId)
+            enableAll()
+        } else {
+            showToast(R.string.answer_congrats)
+            listOf(bNext, bYes, bNo).forEach { it.isEnabled = false }
+        }
+    }
+
+    private fun showToast(textId: Int) {
+        Toast.makeText(this, textId, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun checkAnswer(answer: Boolean) {
+        if (answer == QUESTIONS[currentQuestionIndex].answer) {
+            showToast(R.string.answer_correct)
+            showNextQuestion()
+        } else {
+            showToast(R.string.answer_incorrect)
+        }
+    }
+
+    private fun enableAll() {
+        listOf(bPrev, bNext, bYes, bNo).forEach { it.isEnabled = true }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
