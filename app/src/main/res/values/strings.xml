@@ -11,5 +11,9 @@
 
     <string name="question_1">Умеет ли Нафи считать?</string>
     <string name="question_2">Хорош ли он в счете до четырех?</string>
-    <string name="question_3">Знает ли Нафи японский?</string>
+    <string name="question_3">А до трех миллионов?</string>
+    <string name="question_4">А до четырех?</string>
+    <string name="question_5">Можете ли вы назвать Нафи своим лучшим другом?</string>
+    <string name="question_6">Сделаете ли вы ему бутерброд?</string>
+    <string name="question_7">Это хорошая программа, да?</string>
 </resources>

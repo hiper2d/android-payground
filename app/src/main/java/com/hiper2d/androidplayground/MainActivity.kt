@@ -15,7 +15,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 private val QUESTIONS = listOf(
     Question(R.string.question_1, true),
     Question(R.string.question_2, true),
-    Question(R.string.question_3, false)
+    Question(R.string.question_3, true),
+    Question(R.string.question_4, true),
+    Question(R.string.question_5, true),
+    Question(R.string.question_6, true),
+    Question(R.string.question_7, true)
 )
 
 class MainActivity : AppCompatActivity() {
