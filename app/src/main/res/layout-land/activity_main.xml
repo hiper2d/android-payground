@@ -7,6 +7,7 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+
     <com.google.android.material.appbar.AppBarLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -21,17 +22,20 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" android:gravity="center">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/text_question" android:padding="50dp"/>
+                android:layout_height="wrap_content" android:id="@+id/text_question" android:padding="70dp"
+                android:layout_gravity="center_horizontal"/>
+
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/ButtonsLayout" style="buttonBarStyle">
+                android:layout_height="wrap_content" android:id="@+id/ButtonsLayout" style="buttonBarStyle"
+                android:layout_gravity="center_horizontal|center_vertical">
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:text="@string/button_true"
@@ -41,10 +45,12 @@
                     android:layout_height="wrap_content" android:text="@string/button_false"
                     style="buttonBarButtonStyle" android:id="@+id/button_no"/>
         </LinearLayout>
+
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" style="buttonBarStyle">
+                android:layout_height="wrap_content" style="buttonBarStyle"
+                android:layout_gravity="bottom|center_horizontal">
             <Button
                     android:text="@string/button_back"
                     android:layout_width="wrap_content"
@@ -56,6 +62,6 @@
                     android:layout_height="wrap_content" android:id="@+id/button_next" style="buttonBarButtonStyle"
                     android:drawableEnd="@drawable/arrow_right" android:drawablePadding="4dp"/>
         </LinearLayout>
-    </LinearLayout>
+    </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -35,11 +35,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bPrev: Button
     private lateinit var tvQuestion: TextView
 
-    private var currentQuestionIndex = 0
+    private var currentQuestionIndex = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate(Bundle) called")
+
+        currentQuestionIndex = if (currentQuestionIndex == -1 && savedInstanceState?.getInt(KEY_INDEX) != null) {
+            savedInstanceState.getInt(KEY_INDEX)
+        } else {
+            0
+        }
 
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
@@ -57,11 +63,12 @@ class MainActivity : AppCompatActivity() {
         bPrev.setOnClickListener { showPrevQuestion() }
 
         bPrev.isEnabled = false
+    }
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Nothing is here yet", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.d(TAG, "onSaveInstanceState(Bundle) called")
+        outState.putInt(KEY_INDEX, currentQuestionIndex)
     }
 
     override fun onStart() {
@@ -92,22 +99,6 @@ class MainActivity : AppCompatActivity() {
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         Log.d(TAG, "onTouchEvent() called $event")
         return super.onTouchEvent(event)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 
     private fun showPrevQuestion() {
