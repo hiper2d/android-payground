@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvQuestion: TextView
 
     private var currentQuestionIndex = -1
+    private var isCheater = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,7 +65,11 @@ class MainActivity : AppCompatActivity() {
         bNo.setOnClickListener { checkAnswer(false) }
         bNext.setOnClickListener { showNextQuestion() }
         bPrev.setOnClickListener { showPrevQuestion() }
-        bCheat.setOnClickListener { startActivity(Intent(this, CheatActivity::class.java)) }
+        bCheat.setOnClickListener {
+            val intent = Intent(this, CheatActivity::class.java)
+            intent.putExtra(CheatActivity.EXTRA_ANSWER_IS_TRUE, QUESTIONS[currentQuestionIndex].answer)
+            startActivityForResult(intent, CheatActivity.EXTRA_ANSWER_CODE)
+        }
 
         bPrev.isEnabled = false
     }
@@ -73,6 +78,16 @@ class MainActivity : AppCompatActivity() {
         super.onSaveInstanceState(outState)
         Log.d(TAG, "onSaveInstanceState(Bundle) called")
         outState.putInt(KEY_INDEX, currentQuestionIndex)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        Log.d(TAG, "onActivityResult(Intent) called. Result was shown: ")
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == CheatActivity.EXTRA_ANSWER_CODE) {
+            val returnAnswer = data?.getBooleanExtra(CheatActivity.EXTRA_ANSWER_IS_TRUE, false)
+            Log.d(TAG, "Result was shown: $returnAnswer")
+            isCheater = true
+        }
     }
 
     override fun onStart() {
@@ -129,6 +144,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkAnswer(answer: Boolean) {
+        if (isCheater) {
+            showToast(R.string.toast_cheat)
+            isCheater = false
+            return
+        }
         if (answer == QUESTIONS[currentQuestionIndex].answer) {
             showToast(R.string.answer_correct)
             showNextQuestion()
