@@ -1,5 +1,6 @@
 package com.hiper2d.androidplayground
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.google.android.material.snackbar.Snackbar
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bNo: Button
     private lateinit var bNext: Button
     private lateinit var bPrev: Button
+    private lateinit var bCheat: Button
     private lateinit var tvQuestion: TextView
 
     private var currentQuestionIndex = -1
@@ -54,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         bPrev = findViewById(R.id.button_prev)
         bYes = findViewById(R.id.button_yes)
         bNo = findViewById(R.id.button_no)
+        bCheat = findViewById(R.id.button_cheat)
         tvQuestion = findViewById(R.id.text_question)
 
         tvQuestion.setText(QUESTIONS[currentQuestionIndex].textResId)
@@ -61,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         bNo.setOnClickListener { checkAnswer(false) }
         bNext.setOnClickListener { showNextQuestion() }
         bPrev.setOnClickListener { showPrevQuestion() }
+        bCheat.setOnClickListener { startActivity(Intent(this, CheatActivity::class.java)) }
 
         bPrev.isEnabled = false
     }

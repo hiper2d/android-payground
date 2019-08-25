@@ -25,6 +25,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:gravity="center">
+
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/text_question" android:padding="50dp"/>
@@ -41,10 +42,12 @@
                     android:layout_height="wrap_content" android:text="@string/button_false"
                     style="buttonBarButtonStyle" android:id="@+id/button_no"/>
         </LinearLayout>
+
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" style="buttonBarStyle">
+
             <Button
                     android:text="@string/button_back"
                     android:layout_width="wrap_content"
@@ -55,7 +58,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:id="@+id/button_next" style="buttonBarButtonStyle"
                     android:drawableEnd="@drawable/arrow_right" android:drawablePadding="4dp"/>
+
         </LinearLayout>
+
+        <Button
+                android:id="@+id/button_cheat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_cheat" />
+
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
