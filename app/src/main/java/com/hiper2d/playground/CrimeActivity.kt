@@ -1,4 +1,4 @@
-package com.hiper2d.payground
+package com.hiper2d.playground
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

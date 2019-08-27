@@ -1,7 +1,7 @@
-package com.hiper2d.payground
+package com.hiper2d.playground
 
-import androidx.test.platform.app.InstrumentationRegistry
-import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.InstrumentationRegistry
+import androidx.test.runner.AndroidJUnit4
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.hiper2d.payground", appContext.packageName)
+        assertEquals("com.hiper2d.playground", appContext.packageName)
     }
 }
