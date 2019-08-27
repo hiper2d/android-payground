@@ -1,26 +1,3 @@
 <resources>
-    <string name="app_name">Нафи и я</string>
-    <string name="action_settings">Настройки</string>
-
-    <string name="button_true">Конечно</string>
-    <string name="button_false">Нет :(</string>
-    <string name="button_back">Назад</string>
-    <string name="button_next">Дальше</string>
-    <string name="button_cheat">Чит</string>
-    <string name="button_show_answer">Показать ответ</string>
-
-    <string name="answer_correct">Правильно</string>
-    <string name="answer_incorrect">Совсем не правильно</string>
-    <string name="answer_congrats">Ура</string>
-    <string name="toast_cheat">Читить плохо</string>
-
-    <string name="question_1">Умеет ли Нафи считать?</string>
-    <string name="question_2">Хорош ли он в счете до четырех?</string>
-    <string name="question_3">А до трех миллионов?</string>
-    <string name="question_4">А до четырех?</string>
-    <string name="question_5">Можете ли вы назвать Нафи своим лучшим другом?</string>
-    <string name="question_6">Сделаете ли вы ему бутерброд?</string>
-    <string name="question_7">Это хорошая программа, да?</string>
-
-    <string name="warning_text">Уверены?</string>
+    <string name="app_name">android-payground</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.hiper2d.androidplayground
+package com.hiper2d.payground
 
 import org.junit.Test
 
