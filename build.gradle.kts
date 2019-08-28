@@ -12,6 +12,10 @@ buildscript {
     }
 }
 
+plugins {
+    base
+}
+
 allprojects {
     repositories {
         maven("https://maven.google.com")
@@ -20,6 +24,9 @@ allprojects {
     }
 }
 
-task<Delete>("clean") {
-    delete(rootProject.buildDir)
+tasks {
+    named<Delete>("clean") {
+        delete(rootProject.buildDir)
+    }
 }
+
