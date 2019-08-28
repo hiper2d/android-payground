@@ -18,7 +18,6 @@ plugins {
 
 allprojects {
     repositories {
-        maven("https://maven.google.com")
         jcenter()
         google()
     }
