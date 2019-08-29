@@ -7,7 +7,7 @@ class CrimeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_crime)
+        setContentView(R.layout.activity_fragment)
 
         var fragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
         if (fragment == null) {
