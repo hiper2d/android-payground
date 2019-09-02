@@ -1,4 +1,4 @@
-package com.hiper2d.playground
+package com.hiper2d.playground.fragment
 
 import android.os.Bundle
 import android.text.Editable
@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import com.hiper2d.playground.R
 import com.hiper2d.playground.dto.Crime
 
 class CrimeFragment: Fragment() {

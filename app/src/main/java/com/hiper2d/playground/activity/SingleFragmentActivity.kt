@@ -1,8 +1,9 @@
-package com.hiper2d.playground
+package com.hiper2d.playground.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.hiper2d.playground.R
 
 abstract class SingleFragmentActivity: AppCompatActivity(){
 
