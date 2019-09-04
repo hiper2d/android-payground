@@ -5,7 +5,7 @@ import java.util.*
 
 class CrimeLab private constructor(context: Context) {
 
-    private val crimes: List<Crime>
+    val crimes: List<Crime>
 
     companion object {
         private var INSTANCE: CrimeLab? = null
