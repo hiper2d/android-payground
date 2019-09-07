@@ -10,9 +10,8 @@ class CrimeLab private constructor(context: Context) {
     companion object {
         private var INSTANCE: CrimeLab? = null
 
-        fun getInstance(context: Context): CrimeLab {
-            return INSTANCE ?: CrimeLab(context).apply { INSTANCE = this } // todo: make sure it works
-        }
+        fun getInstance(context: Context): CrimeLab =
+            INSTANCE ?: CrimeLab(context).apply { INSTANCE = this }
     }
 
     init {
