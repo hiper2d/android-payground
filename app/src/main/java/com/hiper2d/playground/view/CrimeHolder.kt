@@ -1,21 +1,28 @@
 package com.hiper2d.playground.view
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.hiper2d.playground.R
 import com.hiper2d.playground.dto.Crime
+import kotlinx.android.synthetic.main.list_item_crime.view.*
 
 class CrimeHolder(inflater: LayoutInflater, parent: ViewGroup) :
-    RecyclerView.ViewHolder(inflater.inflate(R.layout.list_item_crime, parent, false)) {
+    RecyclerView.ViewHolder(inflater.inflate(R.layout.list_item_crime, parent, false)), View.OnClickListener {
 
-    private val title: TextView = itemView.findViewById(R.id.crime_title)
-    private val date: TextView = itemView.findViewById(R.id.crime_date)
+    init {
+        itemView.setOnClickListener(this)
+    }
+
+    override fun onClick(view: View) {
+        Toast.makeText(view.context, itemView.crime_title.text, Toast.LENGTH_SHORT).show()
+    }
 
     fun bind(crime: Crime) {
-        title.text = crime.title
-        date.text = crime.date.toString()
+        itemView.crime_title.text = crime.title
+        itemView.crime_date.text = crime.date.toString()
     }
 }
 

@@ -13,12 +13,7 @@ import kotlinx.android.synthetic.main.fragment_crime.*
 
 class CrimeFragment: Fragment() {
 
-    private lateinit var crime: Crime
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        crime = Crime()
-    }
+    private val crime: Crime by lazy { Crime() }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
         inflater.inflate(R.layout.fragment_crime, container, false)

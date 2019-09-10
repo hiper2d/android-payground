@@ -25,11 +25,11 @@ class CrimeListFragment : Fragment() {
             updateUi(crime_recycler_view)
         }
 
-    private fun updateUi(view: RecyclerView) {
+    private fun updateUi(recyclerView: RecyclerView) {
         val crimeLab = CrimeLab.getInstance(activity!!)
         val crimes = crimeLab.crimes
         val adapter = CrimeAdapter(crimes)
-        view.adapter = adapter
+        recyclerView.adapter = adapter
     }
 
     inner class CrimeAdapter(private val crimes: List<Crime>): RecyclerView.Adapter<CrimeHolder>() {
