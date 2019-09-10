@@ -6,20 +6,14 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.hiper2d.playground.R
 import com.hiper2d.playground.dto.Crime
+import kotlinx.android.synthetic.main.fragment_crime.*
 
 class CrimeFragment: Fragment() {
 
     private lateinit var crime: Crime
-
-    private lateinit var titleField: EditText
-    private lateinit var dateButton: Button
-    private lateinit var solvedCheckBox : CheckBox
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,14 +23,13 @@ class CrimeFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
         inflater.inflate(R.layout.fragment_crime, container, false)
             .apply {
-                setupTitleTextView(this)
-                setupDateButton(this)
-                setupSolvedCheckbox(this)
+                setupTitleTextView()
+                setupDateButton()
+                setupSolvedCheckbox()
             }
 
-    private fun setupTitleTextView(view: View) {
-        titleField = view.findViewById(R.id.crime_title)
-        titleField.addTextChangedListener(object : TextWatcher {
+    private fun setupTitleTextView() {
+        crime_title.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
             }
 
@@ -49,15 +42,13 @@ class CrimeFragment: Fragment() {
         })
     }
 
-    private fun setupDateButton(view: View) {
-        dateButton = view.findViewById(R.id.crime_date)
-        dateButton.text = crime.date.toString()
-        dateButton.isEnabled = false
+    private fun setupDateButton() {
+        crime_date.text = crime.date.toString()
+        crime_date.isEnabled = false
     }
 
-    private fun setupSolvedCheckbox(view: View) {
-        solvedCheckBox = view.findViewById(R.id.crime_solved)
-        solvedCheckBox.setOnCheckedChangeListener { _, isChecked ->
+    private fun setupSolvedCheckbox() {
+        crime_solved.setOnCheckedChangeListener { _, isChecked ->
             crime.solved = isChecked
         }
     }

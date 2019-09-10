@@ -11,10 +11,9 @@ import com.hiper2d.playground.R
 import com.hiper2d.playground.dto.Crime
 import com.hiper2d.playground.dto.CrimeLab
 import com.hiper2d.playground.view.CrimeHolder
+import kotlinx.android.synthetic.main.fragment_crime_list.view.*
 
 class CrimeListFragment : Fragment() {
-
-    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,16 +21,15 @@ class CrimeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View = inflater.inflate(R.layout.fragment_crime_list, container, false)
         .apply {
-            recyclerView = this.findViewById(R.id.crime_recycler_view)
-            recyclerView.layoutManager = LinearLayoutManager(activity)
-            updateUi()
+            crime_recycler_view.layoutManager = LinearLayoutManager(activity)
+            updateUi(crime_recycler_view)
         }
 
-    private fun updateUi() {
+    private fun updateUi(view: RecyclerView) {
         val crimeLab = CrimeLab.getInstance(activity!!)
         val crimes = crimeLab.crimes
         val adapter = CrimeAdapter(crimes)
-        recyclerView.adapter = adapter
+        view.adapter = adapter
     }
 
     inner class CrimeAdapter(private val crimes: List<Crime>): RecyclerView.Adapter<CrimeHolder>() {
