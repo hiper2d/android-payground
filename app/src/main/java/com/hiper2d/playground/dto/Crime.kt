@@ -8,4 +8,5 @@ class Crime {
     var solved: Boolean = false
     val id: UUID = UUID.randomUUID()
     val date: LocalDateTime = LocalDateTime.now()
+    var requiresPolice: Boolean = Random().nextInt(10).rem(5) == 0
 }
