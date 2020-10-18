@@ -8,7 +8,7 @@ plugins {
 
 android {
     compileSdkVersion(29)
-    buildToolsVersion = "29.0.1"
+    buildToolsVersion = "29.0.2"
 
     defaultConfig {
         applicationId = "com.hiper2d.playground"
@@ -33,12 +33,12 @@ android {
 dependencies {
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
 
-    implementation("androidx.appcompat:appcompat:1.0.2")
-    implementation("androidx.core:core-ktx:1.0.2")
-    implementation("androidx.recyclerview:recyclerview:1.0.0")
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("androidx.core:core-ktx:1.3.2")
+    implementation("androidx.recyclerview:recyclerview:1.1.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.2")
 
-    testImplementation("junit:junit:4.12")
-    androidTestImplementation("androidx.test:runner:1.2.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+    testImplementation("junit:junit:4.13.1")
+    androidTestImplementation("androidx.test:runner:1.3.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
 }
